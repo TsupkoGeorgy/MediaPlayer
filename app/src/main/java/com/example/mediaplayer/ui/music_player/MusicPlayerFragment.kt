@@ -6,27 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.mediaplayer.R
+import com.example.mediaplayer.databinding.MusicPlayerFragmentBinding
+import com.example.mediaplayer.databinding.OverviewFragmentBinding
 
 class MusicPlayerFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MusicPlayerFragment()
-    }
-
-    private lateinit var viewModel: MusicPlayerViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.music_player_fragment, container, false)
+
+        val binding = MusicPlayerFragmentBinding.inflate(inflater)
+
+        val selectedResult = MusicPlayerFragmentArgs.fromBundle(arguments!!).resultItem
+        val viewModelFactory =  MusicPlayerViewModelFactory(selectedResult)
+        binding.viewModel = ViewModelProvider(
+            this, viewModelFactory).get(MusicPlayerViewModel::class.java)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MusicPlayerViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
 }
