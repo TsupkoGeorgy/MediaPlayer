@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/dev/Testovoe_Intelectika/MVVM/MediaPlayer/app/src/main/res/drawable/loading_img.xml" value="0.118" />
+        <entry key="..\:/dev/Testovoe_Intelectika/MVVM/MediaPlayer/app/src/main/res/layout/activity_main.xml" value="0.34148550724637683" />
+        <entry key="..\:/dev/Testovoe_Intelectika/MVVM/MediaPlayer/app/src/main/res/layout/grid_view_item.xml" value="0.75" />
+        <entry key="..\:/dev/Testovoe_Intelectika/MVVM/MediaPlayer/app/src/main/res/layout/music_player_fragment.xml" value="0.34148550724637683" />
+        <entry key="..\:/dev/Testovoe_Intelectika/MVVM/MediaPlayer/app/src/main/res/layout/overview_fragment.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
