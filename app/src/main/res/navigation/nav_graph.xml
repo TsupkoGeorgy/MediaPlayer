@@ -18,5 +18,12 @@
         android:id="@+id/musicPlayerFragment"
         android:name="com.example.mediaplayer.ui.music_player.MusicPlayerFragment"
         android:label="music_player_fragment"
-        tools:layout="@layout/music_player_fragment" />
+        tools:layout="@layout/music_player_fragment" >
+        <action
+            android:id="@+id/action_musicPlayerFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+        <argument
+            android:name="resultItem"
+            app:argType="com.example.mediaplayer.data.model.Result" />
+    </fragment>
 </navigation>

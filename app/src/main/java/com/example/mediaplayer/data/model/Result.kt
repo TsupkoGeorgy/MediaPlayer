@@ -1,7 +1,10 @@
 package com.example.mediaplayer.data.model
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Result(
     @Json(name = "artistName")
     val artistName: String?,
@@ -13,5 +16,5 @@ data class Result(
     val musicUrl: String?,
     @Json(name = "trackId")
     val trackId: Long?
-) {
+) : Parcelable {
 }

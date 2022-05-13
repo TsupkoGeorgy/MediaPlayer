@@ -21,6 +21,9 @@ class OverviewViewModel : ViewModel() {
     val properties: LiveData<List<Result>>
         get() = _properties
 
+    private val _navigateToSelectedProperty = MutableLiveData<Result?>()
+    val navigateToSelectedProperty: LiveData<Result?>
+        get() = _navigateToSelectedProperty
 
     init {
         getMarsRealEstateProperties()
@@ -38,6 +41,14 @@ class OverviewViewModel : ViewModel() {
                 _properties.value = ArrayList()
             }
         }
+    }
+
+    fun displayPropertyDetails(result: Result) {
+        _navigateToSelectedProperty.value = result
+    }
+
+    fun displayWebViewComplete() {
+        _navigateToSelectedProperty.value = null
     }
 }
 
