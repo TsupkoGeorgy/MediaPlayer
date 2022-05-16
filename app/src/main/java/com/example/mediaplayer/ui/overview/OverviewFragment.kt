@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 
 import com.example.mediaplayer.databinding.OverviewFragmentBinding
 
 class OverviewFragment : Fragment() {
+    lateinit var searchView: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,9 +30,32 @@ class OverviewFragment : Fragment() {
 
         viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             if (null != it) {
-                this.findNavController().navigate(OverviewFragmentDirections.actionOverviewFragmentToMusicPlayerFragment(it))
+                this.findNavController()
+                    .navigate(OverviewFragmentDirections.actionOverviewFragmentToMusicPlayerFragment(
+                        it))
                 viewModel.displayWebViewComplete()
             }
+        })
+
+        searchView = binding.searchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query!!.length > 4) {
+                    viewModel.setQuery(query)
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                if (query!!.length > 4) {
+                    viewModel.setQuery(query)
+                }
+                return false
+            }
+        })
+
+        viewModel.term.observe(viewLifecycleOwner, Observer {
+            viewModel.getMarsRealEstateProperties()
         })
 
         return binding.root

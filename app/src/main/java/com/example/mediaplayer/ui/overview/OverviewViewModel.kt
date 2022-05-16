@@ -1,13 +1,9 @@
 package com.example.mediaplayer.ui.overview
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.mediaplayer.data.model.Result
 import com.example.mediaplayer.data.network.MusicApi
 import kotlinx.coroutines.launch
-
 
 enum class NetworkStatus { LOADING, ERROR, DONE }
 
@@ -25,22 +21,29 @@ class OverviewViewModel : ViewModel() {
     val navigateToSelectedProperty: LiveData<Result?>
         get() = _navigateToSelectedProperty
 
-    init {
-        getMarsRealEstateProperties()
-    }
 
-    private fun getMarsRealEstateProperties() {
+    private val _term = MutableLiveData<String>()
+    val term: LiveData<String>
+        get() = _term
+
+    fun getMarsRealEstateProperties() {
         viewModelScope.launch {
             _status.value = NetworkStatus.LOADING
             try {
-                val response = MusicApi.retrofitService.getSearchProperty("Electroheart")
-                _properties.value = response.results
+                if (term.value.toString() != "") {
+                    val response = MusicApi.retrofitService.getSearchProperty(term.value.toString())
+                    _properties.value = response.results
+                }
                 _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
                 _status.value = NetworkStatus.ERROR
                 _properties.value = ArrayList()
             }
         }
+    }
+
+    fun setQuery(query: String) {
+        _term.value = query
     }
 
     fun displayPropertyDetails(result: Result) {
