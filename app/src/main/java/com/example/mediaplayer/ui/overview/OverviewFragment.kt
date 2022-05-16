@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-
 import com.example.mediaplayer.databinding.OverviewFragmentBinding
 
 class OverviewFragment : Fragment() {
