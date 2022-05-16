@@ -33,7 +33,7 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = NetworkStatus.LOADING
             try {
-                val response = MusicApi.retrofitService.getSearchProperty("Sixteen")
+                val response = MusicApi.retrofitService.getSearchProperty("Electroheart")
                 _properties.value = response.results
                 _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
