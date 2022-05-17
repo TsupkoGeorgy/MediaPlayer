@@ -39,19 +39,15 @@ android {
 }
 
 dependencies {
-
     // Moshi
     implementation "com.squareup.moshi:moshi:$version_moshi"
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
-
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
-
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$version_lifecycle"
-
     // Retrofit with Moshi Converter
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
@@ -61,19 +57,13 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:$version_rxJava"
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
-
     // dependency for exoplayer
-    implementation "com.google.android.exoplayer:exoplayer:2.17.1"
-    // for core support in exoplayer.
-    implementation "com.google.android.exoplayer:exoplayer-core:2.17.1"
-    // for adding dash support in our exoplayer.
-    implementation "com.google.android.exoplayer:exoplayer-dash:2.17.1"
-    // for adding hls support in exoplayer.
-    implementation "com.google.android.exoplayer:exoplayer-hls:2.17.1"
-    // for smooth streaming of video in our exoplayer.
-    implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:2.17.1"
-    // for generating default ui of exoplayer
-    implementation "com.google.android.exoplayer:exoplayer-ui:2.17.1"
+    implementation "com.google.android.exoplayer:exoplayer:$version_exoplayer"
+    implementation "com.google.android.exoplayer:exoplayer-core:$version_exoplayer"
+    implementation "com.google.android.exoplayer:exoplayer-dash:$version_exoplayer"
+    implementation "com.google.android.exoplayer:exoplayer-hls:$version_exoplayer"
+    implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:$version_exoplayer"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$version_exoplayer"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
