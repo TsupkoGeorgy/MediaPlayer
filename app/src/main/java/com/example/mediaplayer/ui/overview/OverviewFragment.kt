@@ -54,7 +54,7 @@ class OverviewFragment : Fragment() {
         })
 
         viewModel.term.observe(viewLifecycleOwner, Observer {
-            viewModel.getMarsRealEstateProperties()
+            viewModel.getPlayList()
         })
 
         return binding.root

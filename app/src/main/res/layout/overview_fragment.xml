@@ -16,17 +16,18 @@
         android:orientation="vertical"
         tools:context=".ui.overview.OverviewFragment">
 
-      <SearchView
-          android:id="@+id/searchView"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photos_grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:padding="6dp"
+            android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:listData="@{viewModel.properties}"
             app:spanCount="1"
