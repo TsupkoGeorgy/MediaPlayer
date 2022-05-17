@@ -37,11 +37,11 @@ fun playStatus(statusImageView: ImageView, status: PlayStatus?) {
     when (status) {
         PlayStatus.PLAY -> {
             statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_stop_foreground)
+            statusImageView.setImageResource(R.drawable.ic_baseline_pause)
         }
         PlayStatus.PAUSE -> {
             statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_play_foreground)
+            statusImageView.setImageResource(R.drawable.ic_baseline_play_arrow)
         }
     }
 }

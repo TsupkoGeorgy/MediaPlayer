@@ -87,7 +87,6 @@ class MusicPlayerFragment : Fragment() {
         player?.let { exoPlayer ->
             exoPlayer.release()
         }
-
         player = null
     }
 
