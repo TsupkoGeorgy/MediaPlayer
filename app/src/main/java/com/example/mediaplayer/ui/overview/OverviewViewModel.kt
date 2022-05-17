@@ -35,7 +35,7 @@ class OverviewViewModel : ViewModel() {
         MusicApi.retrofitService
             .getSearchProperty(query)
             .toObservable()
-            .subscribeOn(Schedulers.newThread())
+            .subscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<Property> {
                 override fun onSubscribe(d: Disposable) {

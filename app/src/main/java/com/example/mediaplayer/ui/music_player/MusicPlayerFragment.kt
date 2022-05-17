@@ -2,7 +2,6 @@ package com.example.mediaplayer.ui.music_player
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +21,6 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import com.google.android.exoplayer2.util.Util
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 
@@ -39,15 +37,12 @@ class MusicPlayerFragment : Fragment() {
     ): View? {
         val binding = MusicPlayerFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
-
         val selectedResult: Result = MusicPlayerFragmentArgs.fromBundle(arguments!!).resultItem
-
         val viewModelFactory = MusicPlayerViewModelFactory(selectedResult)
         viewModel = ViewModelProvider(
             this, viewModelFactory).get(MusicPlayerViewModel::class.java)
         binding.viewModel = viewModel
         seekBar = binding.seekBar
-
         initializePlayer(selectedResult)
         viewModel.status.observe(viewLifecycleOwner, Observer {
             when (it) {
@@ -144,9 +139,9 @@ class MusicPlayerFragment : Fragment() {
         })
     }
 
-    fun updatePlayerPositionProgress(currentPosition: Int, duratation: Int): Observable<Int> {
+    fun updatePlayerPositionProgress(currentPosition: Int, duration: Int): Observable<Int> {
         return Observable.create { subscriber ->
-            for (i in 0..duratation) {
+            for (i in 0..duration) {
                 if (viewModel.status.value == PlayStatus.PLAY) {
                     subscriber.onNext(currentPosition)
                 }
